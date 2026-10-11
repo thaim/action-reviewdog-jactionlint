@@ -6,7 +6,7 @@ if [ "${RUNNER_DEBUG:-}" = "1" ]; then
   set -x
 fi
 
-version="${INPUT_JACTIONLINT_VERSION:-${JACTIONLINT_VERSION}}"
+version="${INPUT_JACTIONLINT_VERSION}"
 version="${version#v}"
 if [[ ! "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   echo "::error::jactionlint_version must be an exact X.Y.Z version: '${version}'"

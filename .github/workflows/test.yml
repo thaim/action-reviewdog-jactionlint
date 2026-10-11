@@ -70,6 +70,27 @@ jobs:
           filter_mode: nofilter
           fail_level: error
 
+  test-version:
+    name: runner / jactionlint (jactionlint_version)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # Pin an older release than the default with a v prefix, so that the input and the prefix handling are both exercised.
+      - uses: ./
+        with:
+          jactionlint_version: v2.0.2
+          workdir: testdata/ok
+          jactionlint_flags: .github/workflows/ok.yml
+          profile: correctness
+          reporter: local
+          filter_mode: nofilter
+          fail_level: error
+
   test-pr-check:
     if: github.event_name == 'pull_request'
     name: runner / jactionlint (github-pr-check)
