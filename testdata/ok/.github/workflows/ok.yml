@@ -1,0 +1,9 @@
+name: ok
+on: push
+permissions: {}
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - run: echo ok

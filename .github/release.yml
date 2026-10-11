@@ -1,0 +1,19 @@
+changelog:
+  exclude:
+    labels:
+      - tagpr
+  categories:
+    - title: Breaking Changes
+      labels:
+        - breaking-change
+    - title: New Features & Bug Fixes
+      labels:
+        - enhancement
+        - bug
+    - title: Internal Changes
+      labels:
+        - dependencies
+        - ci
+        - documentation
+        - refactor
+        - chore

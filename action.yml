@@ -1,44 +1,88 @@
-name: 'TODO: Run <linter-name> with reviewdog'
-description: 'TODO: 🐶 Run <linter-name> with reviewdog on pull requests to improve code review experience.'
-author: 'TODO: <your-name>'
+name: 'Run jdx/jactionlint with reviewdog'
+description: '🐶 Run jdx/jactionlint (https://github.com/jdx/jactionlint) with reviewdog on pull requests to improve code review experience.'
+author: 'thaim'
 inputs:
   github_token:
-    description: 'GITHUB_TOKEN'
+    description: 'GITHUB_TOKEN.'
     default: '${{ github.token }}'
+    required: false
   workdir:
     description: 'Working directory relative to the root directory.'
     default: '.'
+    required: false
+  tool_name:
+    description: 'Tool name to use for reviewdog reporter.'
+    default: 'jactionlint'
+    required: false
   ### Flags for reviewdog ###
   level:
     description: 'Report level for reviewdog [info,warning,error]'
     default: 'error'
+    required: false
   reporter:
-    description: 'Reporter of reviewdog command [github-pr-check,github-check,github-pr-review].'
+    description: |
+      Reporter of reviewdog command [github-pr-check,github-pr-review,github-check].
+      Default is github-pr-check.
     default: 'github-pr-check'
+    required: false
   filter_mode:
     description: |
       Filtering mode for the reviewdog command [added,diff_context,file,nofilter].
-      Default is added.
-    default: 'added'
+      Default is file.
+    default: 'file'
+    required: false
   fail_level:
     description: |
       If set to `none`, always use exit code 0 for reviewdog. Otherwise, exit code 1 for reviewdog if it finds at least 1 issue with severity greater than or equal to the given level.
       Possible values: [none,any,info,warning,error]
       Default is `none`.
     default: 'none'
+    required: false
   reviewdog_flags:
-    description: 'Additional reviewdog flags'
+    description: 'Additional reviewdog flags, separated by whitespace.'
     default: ''
-  ### Flags for <linter-name> ###
-  locale:
-    description: '-locale flag of misspell. (US/UK)'
+    required: false
+  ### Flags for jdx/jactionlint ###
+  jactionlint_version:
+    description: |
+      Version of jdx/jactionlint to install, as an exact X.Y.Z version.
+      Default is the version this action was released with.
     default: ''
+    required: false
+  profile:
+    description: |
+      Rule profile of jdx/jactionlint [correctness,default,pedantic].
+      Default is empty, which follows the "profile" of the config file, or default.
+      Use correctness to get the checks of rhysd/actionlint.
+    default: ''
+    required: false
+  jactionlint_flags:
+    description: 'Additional jdx/jactionlint flags, separated by whitespace.'
+    default: ''
+    required: false
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'composite'
+  steps:
+    - uses: reviewdog/action-setup@d8a7baabd7f3e8544ee4dbde3ee41d0011c3a93f # v1.5.0
+      with:
+        reviewdog_version: v0.21.2
+    - run: '"${GITHUB_ACTION_PATH}/script.sh"'
+      shell: bash
+      env:
+        JACTIONLINT_VERSION: 2.1.0
+        # Composite run steps do not receive INPUT_<NAME>, so pass each input explicitly.
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+        INPUT_WORKDIR: ${{ inputs.workdir }}
+        INPUT_TOOL_NAME: ${{ inputs.tool_name }}
+        INPUT_LEVEL: ${{ inputs.level }}
+        INPUT_REPORTER: ${{ inputs.reporter }}
+        INPUT_FILTER_MODE: ${{ inputs.filter_mode }}
+        INPUT_FAIL_LEVEL: ${{ inputs.fail_level }}
+        INPUT_REVIEWDOG_FLAGS: ${{ inputs.reviewdog_flags }}
+        INPUT_JACTIONLINT_VERSION: ${{ inputs.jactionlint_version }}
+        INPUT_PROFILE: ${{ inputs.profile }}
+        INPUT_JACTIONLINT_FLAGS: ${{ inputs.jactionlint_flags }}
 
-# Ref: https://haya14busa.github.io/github-action-brandings/
-# TODO: update branding if you want.
 branding:
-  icon: 'check'
+  icon: 'check-circle'
   color: 'blue'
