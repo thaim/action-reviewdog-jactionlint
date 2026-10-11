@@ -3,5 +3,24 @@
   "extends": [
     "config:recommended",
     "helpers:pinGitHubActionDigests"
+  ],
+  "customManagers": [
+    {
+      "description": "Update the jdx/jactionlint version that script.sh downloads. The release tags have a v prefix and action.yml does not.",
+      "customType": "regex",
+      "managerFilePatterns": ["/^action\\.yml$/"],
+      "matchStrings": ["JACTIONLINT_VERSION: (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "jdx/jactionlint",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    {
+      "description": "Update the reviewdog version passed to reviewdog/action-setup.",
+      "customType": "regex",
+      "managerFilePatterns": ["/^action\\.yml$/"],
+      "matchStrings": ["reviewdog_version: (?<currentValue>v\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "reviewdog/reviewdog",
+      "datasourceTemplate": "github-releases"
+    }
   ]
 }
