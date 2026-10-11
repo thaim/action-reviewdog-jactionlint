@@ -44,10 +44,8 @@ inputs:
     required: false
   ### Flags for jdx/jactionlint ###
   jactionlint_version:
-    description: |
-      Version of jdx/jactionlint to install, as an exact X.Y.Z version.
-      Default is the version this action was released with.
-    default: ''
+    description: 'Version of jdx/jactionlint to install, as an exact X.Y.Z version.'
+    default: '2.1.0' # renovate: datasource=github-releases depName=jdx/jactionlint
     required: false
   profile:
     description: |
@@ -69,7 +67,6 @@ runs:
     - run: '"${GITHUB_ACTION_PATH}/script.sh"'
       shell: bash
       env:
-        JACTIONLINT_VERSION: 2.1.0
         # Composite run steps do not receive INPUT_<NAME>, so pass each input explicitly.
         INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
         INPUT_WORKDIR: ${{ inputs.workdir }}

@@ -6,12 +6,10 @@
   ],
   "customManagers": [
     {
-      "description": "Update the jdx/jactionlint version that script.sh downloads. The release tags have a v prefix and action.yml does not.",
+      "description": "Update the default of the jactionlint_version input, marked by a renovate comment. The release tags of jdx/jactionlint have a v prefix and the input does not.",
       "customType": "regex",
       "managerFilePatterns": ["/^action\\.yml$/"],
-      "matchStrings": ["JACTIONLINT_VERSION: (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
-      "depNameTemplate": "jdx/jactionlint",
-      "datasourceTemplate": "github-releases",
+      "matchStrings": ["default: '(?<currentValue>\\d+\\.\\d+\\.\\d+)' # renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)"],
       "extractVersionTemplate": "^v(?<version>.*)$"
     },
     {
