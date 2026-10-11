@@ -1,8 +1,8 @@
 # action-reviewdog-jactionlint
 
-[![Test](https://github.com/thaim/action-reviewdog-jactionlint/workflows/Test/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3ATest)
-[![reviewdog](https://github.com/thaim/action-reviewdog-jactionlint/workflows/reviewdog/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3Areviewdog)
-[![release](https://github.com/thaim/action-reviewdog-jactionlint/workflows/release/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3Arelease)
+[![Test](https://github.com/thaim/action-reviewdog-jactionlint/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/thaim/action-reviewdog-jactionlint/actions/workflows/test.yml?query=branch%3Amain)
+[![reviewdog](https://github.com/thaim/action-reviewdog-jactionlint/actions/workflows/reviewdog.yml/badge.svg?branch=main)](https://github.com/thaim/action-reviewdog-jactionlint/actions/workflows/reviewdog.yml?query=branch%3Amain)
+[![release](https://github.com/thaim/action-reviewdog-jactionlint/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/thaim/action-reviewdog-jactionlint/actions/workflows/release.yml?query=branch%3Amain)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/thaim/action-reviewdog-jactionlint?logo=github&sort=semver)](https://github.com/thaim/action-reviewdog-jactionlint/releases)
 
 This action runs [jdx/jactionlint](https://github.com/jdx/jactionlint) with [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests.
