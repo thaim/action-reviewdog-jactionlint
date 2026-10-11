@@ -59,6 +59,7 @@ inputs:
 
 The inputs of reviewdog and `tool_name` have the same names and defaults as reviewdog/action-actionlint.
 `reviewdog_flags` and `jactionlint_flags` are split on whitespace without shell evaluation, so a value cannot contain spaces or quotes.
+jdx/jactionlint checks the workflows of the git repository even when `workdir` is a subdirectory. To check other files, pass their paths in `jactionlint_flags`.
 
 ## Usage
 
