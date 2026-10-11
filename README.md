@@ -2,7 +2,6 @@
 
 [![Test](https://github.com/thaim/action-reviewdog-jactionlint/workflows/Test/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3ATest)
 [![reviewdog](https://github.com/thaim/action-reviewdog-jactionlint/workflows/reviewdog/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3Areviewdog)
-[![depup](https://github.com/thaim/action-reviewdog-jactionlint/workflows/depup/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3Adepup)
 [![release](https://github.com/thaim/action-reviewdog-jactionlint/workflows/release/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3Arelease)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/thaim/action-reviewdog-jactionlint?logo=github&sort=semver)](https://github.com/thaim/action-reviewdog-jactionlint/releases)
 
@@ -106,4 +105,4 @@ This repository lints itself with this action under the `default` profile of jdx
 
 ### Dependencies
 
-[reviewdog/action-depup](https://github.com/reviewdog/action-depup) updates the versions of reviewdog and jdx/jactionlint in `action.yml`, and Renovate updates the other dependencies.
+Renovate updates the dependencies, including the versions of jdx/jactionlint and reviewdog in `action.yml` through the custom managers in `.github/renovate.json`.

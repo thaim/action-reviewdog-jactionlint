@@ -1,0 +1,29 @@
+name: renovate-config
+on:
+  pull_request:
+    paths:
+      - .github/renovate.json
+      - .github/workflows/renovate-config.yml
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: runner / renovate-config-validator
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      # --strict also fails on deprecated options, so a renamed option such as fileMatch is caught before Renovate ignores it.
+      - run: npx --yes --package renovate@44.149.3 -- renovate-config-validator --strict .github/renovate.json
