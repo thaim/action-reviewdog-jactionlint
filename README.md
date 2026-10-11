@@ -5,7 +5,6 @@
 [![depup](https://github.com/thaim/action-reviewdog-jactionlint/workflows/depup/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3Adepup)
 [![release](https://github.com/thaim/action-reviewdog-jactionlint/workflows/release/badge.svg)](https://github.com/thaim/action-reviewdog-jactionlint/actions?query=workflow%3Arelease)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/thaim/action-reviewdog-jactionlint?logo=github&sort=semver)](https://github.com/thaim/action-reviewdog-jactionlint/releases)
-[![action-bumpr supported](https://img.shields.io/badge/bumpr-supported-ff69b4?logo=github&link=https://github.com/haya14busa/action-bumpr)](https://github.com/haya14busa/action-bumpr)
 
 This action runs [jdx/jactionlint](https://github.com/jdx/jactionlint) with [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests.
 
@@ -78,7 +77,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: thaim/action-reviewdog-jactionlint@<commit SHA> # v1.0.0
+      - uses: thaim/action-reviewdog-jactionlint@<commit SHA> # v0.1.0
         with:
           reporter: github-pr-review
           # Use correctness to get the checks of rhysd/actionlint only.
@@ -97,8 +96,9 @@ jobs:
 
 ### Release
 
-Merge a pull request with one of the labels `bump:major`, `bump:minor` or `bump:patch` to release a new version with [haya14busa/action-bumpr](https://github.com/haya14busa/action-bumpr).
-[haya14busa/action-update-semver](https://github.com/haya14busa/action-update-semver) then updates the major and minor tags, such as `v1` and `v1.2` for `v1.2.3`.
+[Songmu/tagpr](https://github.com/Songmu/tagpr) opens a release pull request when a change is merged into `main`, and merging the release pull request tags the version and creates the GitHub Release.
+The pull request title follows Conventional Commits, and its type decides the version bump: `feat` bumps the minor version and the `!` marker bumps the major version.
+Both workflows come from [thaim/actions](https://github.com/thaim/actions) (`reusable-release.yml` and `reusable-conventional-pr.yml`).
 
 ### Lint
 
