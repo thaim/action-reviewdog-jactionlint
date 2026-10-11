@@ -5,11 +5,17 @@ on:
   pull_request:
     types: [labeled, unlabeled]
 
-permissions:
-  contents: write
-  pull-requests: write
-  issues: read
+permissions: {}
+
+# Do not cancel a release in progress, so that tagpr never stops between tagging and creating the release.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
 
 jobs:
   release:
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: read
     uses: thaim/actions/.github/workflows/reusable-release.yml@13f286e78bb8d09341e9f9bbeed85058c4113002 # v2.1.0
