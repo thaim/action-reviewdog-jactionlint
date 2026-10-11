@@ -1,0 +1,13 @@
+name: Conventional PR
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  conventional-pr:
+    uses: thaim/actions/.github/workflows/reusable-conventional-pr.yml@13f286e78bb8d09341e9f9bbeed85058c4113002 # v2.1.0

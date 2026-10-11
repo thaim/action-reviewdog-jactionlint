@@ -28,7 +28,6 @@ jobs:
           file: action.yml
           version_name: reviewdog_version
           repo: reviewdog/reviewdog
-          labels: "bump:minor"
 
   jactionlint:
     runs-on: ubuntu-latest
@@ -45,4 +44,3 @@ jobs:
           file: action.yml
           version_name: JACTIONLINT_VERSION
           repo: jdx/jactionlint
-          labels: "bump:minor"
