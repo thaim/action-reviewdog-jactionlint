@@ -27,11 +27,13 @@ jobs:
         with:
           persist-credentials: false
       # The local reporter needs no token and reports every finding, so the result does not depend on the event.
+      # Pass the file explicitly, because jactionlint resolves the project from the git root, not from workdir.
       - id: lint
         uses: ./
         continue-on-error: true
         with:
           workdir: testdata/ng
+          jactionlint_flags: .github/workflows/ng.yml
           reporter: local
           filter_mode: nofilter
           fail_level: error
@@ -62,6 +64,7 @@ jobs:
       - uses: ./
         with:
           workdir: testdata/ok
+          jactionlint_flags: .github/workflows/ok.yml
           profile: correctness
           reporter: local
           filter_mode: nofilter
@@ -82,6 +85,7 @@ jobs:
       - uses: ./
         with:
           workdir: testdata/ng
+          jactionlint_flags: .github/workflows/ng.yml
           reporter: github-pr-check
           level: warning
 
@@ -100,5 +104,6 @@ jobs:
       - uses: ./
         with:
           workdir: testdata/ng
+          jactionlint_flags: .github/workflows/ng.yml
           reporter: github-pr-review
           profile: correctness
