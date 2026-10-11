@@ -95,7 +95,7 @@ jobs:
 
 ### Release
 
-[Songmu/tagpr](https://github.com/Songmu/tagpr) opens a release pull request when a change is merged into `main`, and merging the release pull request tags the version and creates the GitHub Release.
+[Songmu/tagpr](https://github.com/Songmu/tagpr) opens a release pull request when a change is merged into `main`, and merging the release pull request tags the version and creates the GitHub Release. It also moves the major and minor version tags, such as `v0` and `v0.1`, to the new version.
 The pull request title follows Conventional Commits, and its type decides the version bump: `feat` bumps the minor version and the `!` marker bumps the major version.
 Both workflows come from [thaim/actions](https://github.com/thaim/actions) (`reusable-release.yml` and `reusable-conventional-pr.yml`).
 
