@@ -25,7 +25,10 @@ jobs:
       contents: write
       pull-requests: read
     steps:
+      # action-bumpr and action-update-semver push the tags with their github_token input, so the checkout keeps no credentials.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       # Bump version on merging Pull Requests with specific labels.
       # (bump:major,bump:minor,bump:patch)
