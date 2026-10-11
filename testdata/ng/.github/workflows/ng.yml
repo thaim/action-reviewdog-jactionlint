@@ -1,0 +1,10 @@
+name: ng
+on: push
+permissions: {}
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      # undefined-property: github.unknown_property does not exist
+      - run: echo "${{ github.unknown_property }}"
