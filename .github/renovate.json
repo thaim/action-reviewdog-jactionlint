@@ -6,9 +6,9 @@
   ],
   "customManagers": [
     {
-      "description": "Update the default of the jactionlint_version input, marked by a renovate comment. The release tags of jdx/jactionlint have a v prefix and the input does not.",
+      "description": "Update the default of the jactionlint_version input in action.yml and its copy in README, marked by a renovate comment. The release tags of jdx/jactionlint have a v prefix and the input does not.",
       "customType": "regex",
-      "managerFilePatterns": ["/^action\\.yml$/"],
+      "managerFilePatterns": ["/^action\\.yml$/", "/^README\\.md$/"],
       "matchStrings": ["default: '(?<currentValue>\\d+\\.\\d+\\.\\d+)' # renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)"],
       "extractVersionTemplate": "^v(?<version>.*)$"
     },
