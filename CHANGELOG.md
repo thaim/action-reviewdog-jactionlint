@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.1.1](https://github.com/thaim/action-reviewdog-jactionlint/compare/v0.1.0...v0.1.1) - 2026-10-11
+
+### Internal Changes
+- chore: move the v0 and v0.1 tags along with each release by @thaim in https://github.com/thaim/action-reviewdog-jactionlint/pull/9
+
 ## [v0.1.0](https://github.com/thaim/action-reviewdog-jactionlint/commits/v0.1.0) - 2026-10-11
 
 ### New Features & Bug Fixes
