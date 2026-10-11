@@ -4,6 +4,7 @@
     "config:recommended",
     "helpers:pinGitHubActionDigests"
   ],
+  "ignorePaths": ["**/testdata/**"],
   "customManagers": [
     {
       "description": "Update the default of the jactionlint_version input in action.yml and its copy in README, marked by a renovate comment. The release tags of jdx/jactionlint have a v prefix and the input does not.",
