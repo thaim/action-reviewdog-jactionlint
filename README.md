@@ -46,7 +46,7 @@ inputs:
   ### Flags for jdx/jactionlint ###
   jactionlint_version:
     description: 'Version of jdx/jactionlint to install, as an exact X.Y.Z version.'
-    default: '2.1.0' # renovate: datasource=github-releases depName=jdx/jactionlint
+    default: '2.2.0' # renovate: datasource=github-releases depName=jdx/jactionlint
   profile:
     description: 'Rule profile of jdx/jactionlint [correctness,default,pedantic]. Empty follows the config file.'
     default: ''
