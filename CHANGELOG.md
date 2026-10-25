@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.1.2](https://github.com/thaim/action-reviewdog-jactionlint/compare/v0.1.1...v0.1.2) - 2026-10-25
+
+### Internal Changes
+- chore(deps): update reviewdog/action-misspell action to v1.30.3 by @renovate[bot] in https://github.com/thaim/action-reviewdog-jactionlint/pull/13
+- chore(deps): update dependency jdx/jactionlint to v2.3.0 by @renovate[bot] in https://github.com/thaim/action-reviewdog-jactionlint/pull/12
+
 ## [v0.1.1](https://github.com/thaim/action-reviewdog-jactionlint/compare/v0.1.0...v0.1.1) - 2026-10-11
 
 ### Internal Changes
